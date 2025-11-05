@@ -147,9 +147,9 @@ export const refreshToken = async (req: Request, res: Response) => {
 };
 
 
-export const logoutUser = async (req: Request, res: Response) => {
+export const logoutUser = async (req: any , res: Response) => {
     console.log("Logout endpoint called",req);
-  const refreshToken = req?.cookie?.refreshToken;
+  const refreshToken = req.cookie?.refreshToken;
   if (refreshToken) {
     try {
       const decoded: any = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET!);
@@ -160,6 +160,12 @@ export const logoutUser = async (req: Request, res: Response) => {
     } catch (error) {
       // If the token is invalid/expired, we just proceed to clear the cookie
       console.log("Logout: Invalid token provided, clearing cookie.");
+      res.clearCookie('refreshToken', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+      });
+      return res.status(200).send({status:true,message:'Logged out successfully'});
     }
   }
 

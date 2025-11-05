@@ -1,6 +1,6 @@
 import express, { type Request, type Response } from "express";
 import connectDB from "./config/db.ts";
-import cors from "cors";
+import  cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,9 +12,10 @@ import categoryRoutes from './routes/categoryRoutes.ts';
 
 connectDB();
 
+const FRONTEND_URL = process.env.FRONTEND_URL ?? 'http://localhost:3000';
 
 app.use(cors({
-  origin: [process.env.FRONTEND_URL], // Adjust according to your frontend URL and port
+  origin: FRONTEND_URL ? [FRONTEND_URL] : false, // Allow requests only from FRONTEND_URL or disable CORS if not set
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true, // Allow cookies to be sent
 }));

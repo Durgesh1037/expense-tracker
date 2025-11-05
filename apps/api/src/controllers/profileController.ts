@@ -24,7 +24,7 @@ export const updateProfile = async (req: Request & { user?: {_id:string, email?:
     console.log("called my profile updateProfile");
     console.log("req.body:", req.file);
     const userId = req.user?._id;
-    const avatarUrl=req.file.originalname;
+    const avatarUrl=req?.file?.originalname;
     if (avatarUrl&&userId) {
       const updatedUser = await User.findByIdAndUpdate({_id:new mongoose.Types.ObjectId(userId)}, {avatarUrl:`${process?.env?.BACKEND_URL}uploads/${avatarUrl}`}, {
         new: true,
