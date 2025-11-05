@@ -1,5 +1,5 @@
 import './App.css'
-import SignupPage from './pages/SignUpPage'
+import SignupPage from './pages/SignupPage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PrivateLayout from './layouts/PrivateLayout'
 import Dashboard from './pages/Dashboard'
