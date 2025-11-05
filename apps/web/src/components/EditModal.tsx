@@ -178,12 +178,7 @@ export default function EditModal({
     tags.forEach(tag => payload.append("tags", tag));
     // payload.append("tags", JSON.stringify(tags));
     if (file) payload.append("receipt", file as any);
-    // FormData can't be inspected by console.log directly in a readable way.
-    // Iterate entries to debug what is actually inside the FormData.
-    console.log("Submitting payload entries:");
-    for (const pair of payload.entries()) {
-      console.log(pair[0], pair[1]);
-    }
+    
     mutation.mutate(payload);
   };
 

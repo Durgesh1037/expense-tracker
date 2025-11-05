@@ -149,6 +149,9 @@ export default function Expenses() {
     console.log("Deleted Expense ID:", expenseId);
     const response = await api.delete(`/expenses/${expenseId}`);
     setOpen(false);
+    if(response)
+    alert("deleted successfully")
+    fetchUserExpenses();
     // const data=await fetchUserExpenses();
     // console.log("Updated Expenses after deletion:",data);
   };

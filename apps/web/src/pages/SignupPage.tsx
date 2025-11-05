@@ -32,6 +32,7 @@ import { Link, useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import { toast } from 'react-toastify';
 import { setCookie } from "../utils/cookiesToken";
+import axios from "axios";
 
 
 const RULES = [
@@ -93,7 +94,7 @@ export default function SignupPage() {
 
     const onSubmit = async (data: any) => {
         try {
-            const response = await api.post('/auth/register', data);
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/register`, data);
             console.log('Created:', response.data);
             toast.success('Account created successfully!');
             setCookie({ accessToken:response?.data?.accessToken }, 1800);

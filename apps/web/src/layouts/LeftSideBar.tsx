@@ -31,6 +31,7 @@ import {
 
 import {NavLink, useNavigate } from 'react-router-dom';
 import api from '../api/axios';
+import { removeCookieToken } from '../utils/cookiesToken';
 export default function LeftSideBar() {
     const navigate = useNavigate();
       const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -41,6 +42,7 @@ export default function LeftSideBar() {
       const response=await api.post('/auth/logout');
       if(response.data.status){
         console.log("Logged out successfully");
+        removeCookieToken("accessToken");
         navigate('/');
       }
     };

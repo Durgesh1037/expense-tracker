@@ -2,11 +2,11 @@ import type { Request, Response } from "express";
 import * as bcrypt from "bcrypt-ts";
 import Expenses from "../models/Expenses.ts";
 import mongoose from "mongoose";
-export const getExpenses = async (req: Request & { user?: { id?: string } }, res: Response) => {
+export const getExpenses = async (req: Request & { user?: { _id?: string } }, res: Response) => {
   try {
     // support: from, to (dates), category, tags (comma-separated), q (search), page, limit
     const { from, to, category, tags, q, page = '1', limit = '20' } = req.query as any;
-    const userId = req.user?.id;
+    const userId = req.user?._id;
 
     const filter: any = {};
     // scope to authenticated user when available

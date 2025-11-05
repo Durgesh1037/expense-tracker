@@ -3,7 +3,7 @@ import { getCookieToken } from '../utils/cookiesToken';
 
 // Create an Axios instance
 const token=getCookieToken("accessToken");
-console.log("token",token);
+console.log("tokenin api calling",token);
 const api = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_BASE_URL || 'http://localhost:3000/api',
   headers: {
