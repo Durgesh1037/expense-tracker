@@ -1,5 +1,8 @@
 A full-stack **Expense Tracker** application built with **React**, **Node.js**, **Express**, and **MongoDB**, designed to help users manage their expenses efficiently.
 
+Local frontend Port :- 5173
+Local Backend Port   :- 3000
+
 expense-tracker/
 │
 ├── apps/
@@ -24,3 +27,8 @@ Dashboard
 - User details (name, email, etc.).  
 - Option to update profile and password.  
 - Personal preferences such as
+
+
+github public repo :- https://github.com/Durgesh1037/expense-tracker/tree/main
+
+apps/web :- Live url with vercel :- https://expense-tracker-zeta-teal.vercel.app/ 
