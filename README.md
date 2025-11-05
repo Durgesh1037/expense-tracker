@@ -12,6 +12,33 @@ expense-tracker/
 └── README.md
 
 
+Mongodb Models
+
+1. users
+2. expenses
+3. sessions
+4. category
+
+Backend routes 
+1. users auth routes
+2. dashboard summary route
+3. expenses routes (CRUD)
+4. profile update route
+
+Frontend pages
+1. Signup page
+2. Login page
+3. Dashbord page
+4. Expenses page
+5. Profile page
+
+start locally
+backend start :- npm run dev
+seed data :- npm run seed
+
+fronend start :- npm run dev
+
+
 Dashboard
 - Overview of total income, expenses, and remaining balance.  
 - Category-wise and date-wise summary of spending.  
